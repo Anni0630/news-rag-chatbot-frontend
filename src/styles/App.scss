@@ -1,0 +1,107 @@
+// Variables
+$primary-color: #2563eb;
+$primary-dark: #1d4ed8;
+$secondary-color: #64748b;
+$success-color: #10b981;
+$danger-color: #ef4444;
+$warning-color: #f59e0b;
+$background-color: #f8fafc;
+$surface-color: #ffffff;
+$text-primary: #1e293b;
+$text-secondary: #64748b;
+$text-light: #94a3b8;
+$border-color: #e2e8f0;
+$border-light: #f1f5f9;
+$shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin card {
+  background: $surface-color;
+  border-radius: 12px;
+  box-shadow: $shadow-md;
+  border: 1px solid $border-color;
+}
+
+// Base styles
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  .app-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid $border-light;
+    padding: 1.5rem 2rem;
+    text-align: center;
+
+    h1 {
+      color: $text-primary;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .app-main {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-footer {
+    background: rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+
+    p {
+      opacity: 0.8;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .app {
+    .app-header {
+      padding: 1rem;
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .app-main {
+      padding: 1rem;
+    }
+  }
+}
