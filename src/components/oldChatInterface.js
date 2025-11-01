@@ -31,27 +31,6 @@ const ChatInterface = () => {
       setIsConnected(true);
     });
 
-    socketRef.current.on('stream_update', (data) => {
-  setMessages(prev => {
-    const updated = [...prev];
-    const lastMsg = updated[updated.length - 1];
-
-    // ✅ If last message is bot, update it live
-    if (lastMsg && lastMsg.role === 'assistant') {
-      lastMsg.content = data.text;
-    } else {
-      // Create a new assistant message if none exists
-      updated.push({
-        role: 'assistant',
-        content: data.text,
-        timestamp: new Date().toISOString(),
-      });
-    }
-
-    return updated;
-  });
-});
-
     socketRef.current.on('disconnect', () => {
       console.log('❌ Disconnected from server');
       setIsConnected(false);
